@@ -1,8 +1,7 @@
 #ifndef MAGNETIC_SENSOR_H
 #define MAGNETIC_SENSOR_H
 #include "sensor.h"
-class MagneticSensor: ???
-{
+class MagneticSensor: public Sensor{
 public:
     MagneticSensor(int z=0);
     void setSensorOpen();
