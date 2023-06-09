@@ -23,10 +23,10 @@ int main(int argc, char * argv[]) {
     cout << "nDoors:" << nDoors << " junk: " << junk << endl;
     for( int i=0; i<nDoors; i++) {
         int zone;
-        fin >> junk >> junk >> zone;
+        fin >> junk >> junk >> junk >> zone;
         doors.push_back(new Door(zone));
     }
-    for (uint i=0; i<doors.size(); i++) { //uint : unsigned int
+    for (unsigned int i=0; i<doors.size(); i++) { //uint : unsigned int
         doors[i]->changeState();
         doors[i]->changeState();
     }
