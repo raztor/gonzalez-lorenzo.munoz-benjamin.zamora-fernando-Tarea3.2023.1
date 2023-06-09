@@ -4,12 +4,13 @@ Door::Door()
 {
 
 }
-Door::Door(MagneticSensor sensor): ??? {
+Door::Door(int zone): magneticSensor(zone) {
 }
 void Door::changeState() {
         if (magneticSensor.isClose())
-            ???
+        magneticSensor.setSensorOpen();
         else
-            ???
+        magneticSensor.setSensorClose();
 }
+
 
