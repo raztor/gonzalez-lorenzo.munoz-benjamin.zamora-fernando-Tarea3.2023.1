@@ -10,10 +10,9 @@ Door::Door(MagneticSensor * sensor, DoorView * v): ?? {
     view->setDoorModel(this);
 }
 void Door::changeState() {
-    if (isClose) {
-       ???
-    } else {
-       ???
-    }
+    if (magneticSensor->isClose())
+        magneticSensor->setSensorOpen();
+    else
+        magneticSensor->setSensorClose();
 }
 
