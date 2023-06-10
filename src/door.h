@@ -1,7 +1,7 @@
 #ifndef DOOR_H
 #define DOOR_H
 #include "magneticsensor.h"
-??
+#include "doorview.h"
 class Door
 {
 private:
