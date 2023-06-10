@@ -17,7 +17,7 @@ find_package(Qt5 COMPONENTS
         PrintSupport REQUIRED
         )
 
-add_executable(T3_POO src/main.cpp src/magnetic_sensor.cpp src/door.cpp src/sensor.cpp)
+add_executable(T3_POO src/main.cpp src/magnetic_sensor.cpp src/door.cpp src/sensor.cpp src/window.cpp src/window.h src/window.h)
 
 target_link_libraries(T3_POO
         Qt::Core
