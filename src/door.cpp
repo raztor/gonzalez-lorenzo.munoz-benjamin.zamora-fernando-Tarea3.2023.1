@@ -13,4 +13,12 @@ void Door::changeState() {
         magneticSensor.setSensorClose();
 }
 
+int Door::getZone() {
+    return magneticSensor.getZone();
+}
+bool Door::isClosed() {
+    return magneticSensor.isClose();
+}
+
+
 

@@ -8,6 +8,8 @@ private:
 public:
     Window(int zone);
     void changeState();
+    int getZone();
+    bool isClosed();
 private:
     MagneticSensor magneticSensor;
 };
