@@ -1,24 +1,23 @@
-#include "door.h"
+#include "window.h"
 
-Door::Door()
+Window::Window()
 {
 
 }
-Door::Door(int zone): magneticSensor(zone) {
+Window::Window(int zone): magneticSensor(zone) {
 }
-void Door::changeState() {
+void Window::changeState() {
         if (magneticSensor.isClose())
         magneticSensor.setSensorOpen();
         else
         magneticSensor.setSensorClose();
 }
 
-int Door::getZone() {
+int Window::getZone() {
     return magneticSensor.getZone();
 }
-bool Door::isClosed() {
+bool Window::isClosed() {
     return magneticSensor.isClose();
 }
-
 
 
