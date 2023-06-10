@@ -6,7 +6,7 @@ class Door
 private:
     Door(); // a door creation without sensor is not allowed.
 public:
-    Door(MagneticSensor sensor);
+    Door(int zone);
     void changeState();
 private:
     MagneticSensor magneticSensor;
