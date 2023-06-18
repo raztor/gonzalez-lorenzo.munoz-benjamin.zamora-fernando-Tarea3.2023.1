@@ -1,0 +1,53 @@
+# Tarea 3, programación orientada a objetos: Simulador gráfico de una alarma domiciliaria en C++
+
+El objetivo de esta tarea fue crear una interfaz gráfica para la simulación de una alarma domiciliaria. Se considera una casa que tendrá un conjunto de puertas, ventanas y una central. 
+
+Esta tarea está dividida en cuatro etapas diferentes además de un bonus, las cuales serán explicadas con detalle a lo largo de este documento. Además todas cuentan con un makefile que está en la carpeta **./src**
+
+Además, para facilitar la correción, las etapas están separadas por Branches (e.g. Fase_1 para la etapa 1).
+
+
+## Etapa 1: Sólo puertas (sin interfaz gráfica ni central)
+
+En esta etapa, el programa no contará con una interfaz gráfica y seguirá un paradigma no conducido (o dirigido) por eventos.
+Además de leer los datos del archivo de configuración, el main generará invocaciones a cada puerta para abrirla y luego cerrarla. Cada sensor de puerta mostrará por consola su estado después de cada cambio.
+
+
+## Etapa 2: Puertas y ventanas más la Central (sin interfaz gráfica ni sirena)
+
+Esta etapa aún no cuenta con una interfaz gráfica. Después de leer la configuración inicial, que puede incluir puertas y ventanas, el programa principal abre y cierra todas las puertas y ventanas. Cada vez que un sensor cambia de estado, se muestra por consola su nuevo estado. A continuación, el programa principal solicita a la Central que verifique todas las zonas. 
+Si todas las zonas están cerradas, la Central mostrará el mensaje "Zonas Cerradas"; de lo contrario, mostrará "Alguna zona está abierta". Luego, el programa principal abre la puerta principal y vuelve a solicitar a la Central que verifique las zonas. En este caso, la Central debería mostrar en la consola "Alguna zona está abierta".
+
+
+## Etapa 3: Puertas y ventanas más la Central (con interfaz gráfica sin sirena)
+
+Esta etapa implementa el paradigma de "programación conducida por eventos". Al presionar y soltar el botón izquierdo del mouse sobre las puertas y ventanas, se reflejan el cambio en sus vistas. La Central revisa el estado de los sensores cada 200 [ms]. 
+Cuando la Central detecta que alguna zona está abierta, imprimirá en la consola el mensaje "Alguna zona está abierta". Por lo tanto, se mostrará una secuencia de estos mensajes cada vez que una zona sea abierta.
+
+
+## Etapa 4: Programa completo
+
+
+En esta etapa, tomará como entrada la configuración del sistema (puertas y ventanas) desde un archivo específico. A través de la interfaz de usuario, el programa permitirá simular la apertura y cierre de puertas y ventanas con una interfaz gráfica.
+
+
+Los archivos que contienen esta etapa son:
+door.cpp
+door.h
+doorview.cpp
+doorview.h
+magneticSensor.cpp
+magneticSensor.h
+magneticSensorView.cpp
+magneticSensorView.h
+house.cpp
+house.h
+sensor.cpp
+sensor.h
+housewindow.cpp
+housewindow.h
+housewindow.ui
+housewindowView.cpp
+central.cpp
+main.cpp
+config.txt
