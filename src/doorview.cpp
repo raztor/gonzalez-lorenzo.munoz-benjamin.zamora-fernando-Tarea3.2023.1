@@ -1,4 +1,5 @@
 #include "doorview.h"
+#include "door.h"
 #include <QBrush>
 DoorView::DoorView(int x, int y, int angle, MagneticSensorView * mv) {
     makeDoorView();
@@ -31,8 +32,8 @@ void DoorView::makeDoorView(){
     p.append(QPointF(180,0));
     switchPillar->setPolygon(p);
     switchPillar->setBrush(Qt::blue);
-    doorPanel = new QGraphicsRectItem(??, ??, ??, ??, this);
-    doorPanel->setBrush(Qt::blue);
+    doorPanel = new QGraphicsRectItem(10, 10, 160, 10, this);
+    doorPanel->setBrush(Qt::red);
     doorPanel->setTransformOriginPoint(doorPanel->rect().left(), doorPanel->rect().bottom());
     addToGroup(origenPillar);
     addToGroup(switchPillar);
@@ -50,7 +51,8 @@ void DoorView::installMagneticSensor(MagneticSensorView & mv){
                                  switchPillar->boundingRect().height(),
                                  mv.getSwitchView().rect().width(),
                                  mv.getSwitchView().rect().height());
-    mv.getMagnetView().setTransformOriginPoint(mv.getMagnetView().rect().center());
+    mv.getMagnetView().setTransformOriginPoint(doorPanel->rect().x() + doorPanel->rect().height()- doorPanel->rect().height(), doorPanel->rect().y() + doorPanel->rect().height());
+
     addToGroup(&mv.getMagnetView());
     addToGroup(&mv.getSwitchView());
 }
@@ -70,3 +72,5 @@ DoorView::~DoorView(){
     delete doorPanel;
     delete switchPillar;
 }
+
+

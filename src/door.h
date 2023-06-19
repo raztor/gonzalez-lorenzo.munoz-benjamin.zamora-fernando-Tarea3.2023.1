@@ -2,6 +2,8 @@
 #define DOOR_H
 #include "magneticsensor.h"
 #include "doorview.h"
+
+class DoorView;
 class Door
 {
 private:

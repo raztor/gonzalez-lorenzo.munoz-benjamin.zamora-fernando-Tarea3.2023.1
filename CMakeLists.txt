@@ -11,7 +11,7 @@ set(CMAKE_AUTOUIC ON)
 INCLUDE_DIRECTORIES("src")
 
 #copia el config.txt a la carpeta de compilación
-configure_file(config.txt config.txt COPYONLY)
+#configure_file(config.txt config.txt COPYONLY)
 
 
 # Busca las librerías de Qt5
@@ -23,14 +23,20 @@ find_package(Qt5 COMPONENTS
         )
 
 add_executable(T3_POO
-    src/central.cpp
-    src/door.cpp
-    src/doorview.cpp
-    src/housewindow.cpp
-    src/magneticsensor.cpp
-    src/magneticsensorview.cpp
-    src/main.cpp
-    src/sensor.cpp)
+        src/central.cpp
+        src/door.cpp
+        src/house.cpp
+        src/doorview.cpp
+        src/housewindow.cpp
+        src/magneticsensor.cpp
+        src/magneticsensorview.cpp
+        src/main.cpp
+        src/sensor.cpp
+        src/windowview.cpp
+        src/windowview.h
+        src/windowview.cpp
+        src/windowview.h src/window.cpp
+        src/window.h)
 
 # Agrega las librerías previamente encontradas
 target_link_libraries(T3_POO

@@ -5,6 +5,8 @@
 #include <vector>
 #include "door.h"
 #include "doorview.h"
+#include "window.h"
+#include "windowview.h"
 #include "central.h"
 using namespace std;
 #include <QtWidgets>
@@ -21,7 +23,7 @@ int main(int argc, char *argv[])
         return -1;
     }
     fin.open(argv[1]);
-    if (fin.fail()){
+    if (!fin){
         cout << "Could not read file" << endl;
         return -2;
     }
@@ -29,14 +31,26 @@ int main(int argc, char *argv[])
     fin >> nDoors;
     fin >> nWindows;
     cout << "nDoors:" << nDoors << " nWindows: " << nWindows << endl;
+
     for( int i=0; i<nDoors; i++) {
         int x, y, angle, zone;
         fin >> x >> y >> angle >> zone;
+        printf("Door %d: x=%d y=%d angle=%d zone=%d\n", i, x, y, angle, zone);
         MagneticSensor * sensor = new MagneticSensor(zone);
         DoorView * doorView = new DoorView(x,y,angle, sensor->getView());
         new Door(sensor, doorView);
         central.addNewSensor(sensor);
         gui.addHouseHollow(doorView);
+    }
+    for( int i=0; i<nWindows; i++) {
+        int x, y, angle, zone;
+        fin >> x >> y >> angle >> zone;
+        printf("Window %d: x=%d y=%d angle=%d zone=%d\n", i, x, y, angle, zone);
+        MagneticSensor * sensor = new MagneticSensor(zone);
+        WindowView * windowView = new WindowView(x,y,angle, sensor->getView());
+        new Window(sensor, windowView);
+        central.addNewSensor(sensor);
+        gui.addHouseHollow(windowView);
     }
     gui.show();
     return a.exec();

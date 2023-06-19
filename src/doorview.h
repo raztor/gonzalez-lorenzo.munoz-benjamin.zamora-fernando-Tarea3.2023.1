@@ -8,6 +8,8 @@
 #include "door.h"
 #include "magneticsensorview.h"
 
+class Door;
+
 class DoorView : public QGraphicsItemGroup
 {
 public:
@@ -25,5 +27,7 @@ private:
     QGraphicsPolygonItem * switchPillar;
     QGraphicsRectItem * magnet;
 };
+
+
 
 #endif // DOORVIEW_H
