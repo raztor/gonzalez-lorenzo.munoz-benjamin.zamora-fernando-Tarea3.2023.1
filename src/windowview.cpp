@@ -33,13 +33,13 @@ void WindowView::makeWindowView() {
 }
 void WindowView::installMagneticSensor(MagneticSensorView & mv){
     mv.getMagnetView().setRect(slidingGlass->rect().right()-mv.getMagnetView().rect().width(),
-                                slidingGlass->rect().bottom(),
-                                 mv.getMagnetView().rect().width(),
-                                 mv.getMagnetView().rect().height());
+                               slidingGlass->rect().bottom(),
+                               mv.getMagnetView().rect().width(),
+                               mv.getMagnetView().rect().height());
     mv.getSwitchView().setRect(switchPillar->rect().right()-2.5*mv.getMagnetView().rect().width(),
                                switchPillar->rect().bottom(),
-                                 mv.getSwitchView().rect().width(),
-                                 mv.getSwitchView().rect().height());
+                               mv.getSwitchView().rect().width(),
+                               mv.getSwitchView().rect().height());
     mv.getMagnetView().setTransformOriginPoint(slidingGlass->rect().x() + slidingGlass->rect().height()- slidingGlass->rect().height(), slidingGlass->rect().y() + slidingGlass->rect().height());
 
     addToGroup(&mv.getMagnetView());

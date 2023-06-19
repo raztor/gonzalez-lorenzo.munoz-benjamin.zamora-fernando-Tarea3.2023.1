@@ -8,6 +8,8 @@
 #include "window.h"
 #include "windowview.h"
 #include "central.h"
+#include "centralview.h"
+#include "sirenview.h"
 using namespace std;
 #include <QtWidgets>
 
@@ -15,7 +17,11 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     HouseWindow gui;  // gui: Graphical User Interface
-    Central central;
+    Central central(nullptr);
+    SirenView * sirenView = new SirenView();
+    CentralView * centralView = new CentralView();
+    centralView->setCentral(&central);
+    central.setSirenView(sirenView);
     ifstream fin;
     int nDoors, nWindows;
     if (argc != 2) {
@@ -52,6 +58,8 @@ int main(int argc, char *argv[])
         central.addNewSensor(sensor);
         gui.addHouseHollow(windowView);
     }
+    gui.addAlarmHollow(sirenView);
+    gui.addAlarmHollow(centralView);
     gui.show();
     return a.exec();
 }
