@@ -1,17 +1,20 @@
 #ifndef DOOR_H
 #define DOOR_H
-#include "magnetic_sensor.h"
+#include "magneticsensor.h"
+#include "doorview.h"
+
+class DoorView;
 class Door
 {
 private:
-    Door(); // a door creation without sensor is not allowed.
+    Door(); // door creation without sensor is not allowed.
 public:
-    Door(int zone);
+    Door(MagneticSensor * sensor, DoorView * v);
     void changeState();
-    int getZone();
-    bool isClosed();
 private:
-    MagneticSensor magneticSensor;
+    MagneticSensor * magneticSensor;
+    DoorView * view;
+    bool isClose;
 };
 
 #endif // DOOR_H

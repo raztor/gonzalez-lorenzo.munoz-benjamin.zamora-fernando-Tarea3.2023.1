@@ -1,15 +1,20 @@
 cmake_minimum_required(VERSION 3.22)
 project(T3_POO)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
+
+# Incluye la carpeta src
 INCLUDE_DIRECTORIES("src")
 
+#copia el config.txt a la carpeta de compilación
+#configure_file(config.txt config.txt COPYONLY)
 
-# Paquetes necesarios para la compilación
+
+# Busca las librerías de Qt5
 find_package(Qt5 COMPONENTS
         Core
         Gui
@@ -17,8 +22,23 @@ find_package(Qt5 COMPONENTS
         PrintSupport REQUIRED
         )
 
-add_executable(T3_POO src/main.cpp src/magnetic_sensor.cpp src/door.cpp src/sensor.cpp src/window.cpp src/window.h src/window.h)
+add_executable(T3_POO
+        src/central.cpp
+        src/door.cpp
+        src/house.cpp
+        src/doorview.cpp
+        src/housewindow.cpp
+        src/magneticsensor.cpp
+        src/magneticsensorview.cpp
+        src/main.cpp
+        src/sensor.cpp
+        src/windowview.cpp
+        src/windowview.h
+        src/windowview.cpp
+        src/windowview.h src/window.cpp
+        src/window.h)
 
+# Agrega las librerías previamente encontradas
 target_link_libraries(T3_POO
         Qt::Core
         Qt::Gui

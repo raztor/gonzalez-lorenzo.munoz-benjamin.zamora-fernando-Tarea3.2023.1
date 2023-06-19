@@ -1,17 +1,26 @@
-#ifndef WINDOW_H
-#define WINDOW_H
-#include "magnetic_sensor.h"
+//
+// Created by benjamin on 18-06-23.
+//
+
+#ifndef T3_POO_WINDOW_H
+#define T3_POO_WINDOW_H
+
+#include "magneticsensor.h"
+
+class WindowView;
+
 class Window
 {
 private:
-    Window(); // a door creation without sensor is not allowed.
+    Window();
 public:
-    Window(int zone);
+    Window(MagneticSensor * sensor, WindowView * v);
     void changeState();
-    int getZone();
-    bool isClosed();
 private:
-    MagneticSensor magneticSensor;
+    MagneticSensor * magneticSensor;
+    WindowView * view;
+    bool isClose;
 };
 
-#endif // WINDOW_H
+
+#endif //T3_POO_WINDOW_H
