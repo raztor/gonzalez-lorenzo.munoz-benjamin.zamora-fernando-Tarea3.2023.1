@@ -2,23 +2,35 @@
 #include <iostream>
 
 
+
 Central::Central(QObject *parent)
         : QObject(parent), timer(new QTimer(this)) {
 
     timer ->start(200);
     tipo_Alarma = 0;
+    timer2 = new QElapsedTimer();
+
 }
 void Central::addNewSensor(Sensor * ps){
     zones.push_back(ps);
 }
 int cont =0;
+int fin=0;
+int recien_entrado = 0;
 int Central::checkZones() {
     // Arreglo con las zonas y si estan abiertas o no
     int openZones[zones.size()];
-
     for (uint i=0; i< zones.size(); i++) {
         for(uint i=0; i< zones.size(); i++){
             if(!zones[i]->isClose()){
+                if(timer2->elapsed()<5000){
+                    if(zones[i]->getZone()==0){
+                        if(recien_entrado==0){
+                            cout<<"Alarma pospuesta recien entrado"<<endl;
+                            return 4;
+                        }recien_entrado++;
+                    }
+                }
                 if(tipo_Alarma==1){
                     if(cont==0) {
                         cont++;
@@ -47,7 +59,7 @@ void Central::setSirenView(SirenView * sirenview){
 }
 
 bool Central::armable() {
-    if (checkZones()==0) {
+    if (checkZones()==0||checkZones()==4) {
         return true;
     }
     preAlarmaUpdateDisplay();
@@ -66,6 +78,8 @@ void Central::activarAlarma() {
         cout << "Zona abierta, alarma no activada" << endl;
         return;
     } else {
+        // Inicia timer 2
+        timer2->start();
         cout << "Alarma activada" << endl;
         tipo_Alarma = 1;
         connect(timer, SIGNAL(timeout()), this, SLOT(checkZones()));

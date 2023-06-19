@@ -3,6 +3,7 @@
 #include <QObject>
 #include <vector>
 #include <QTimer>
+#include <QElapsedTimer>
 #include "sensor.h"
 #include "sirenview.h"
 using namespace std; //needed by vector<>
@@ -32,6 +33,7 @@ private slots:
 private:
     vector<Sensor *> zones;  // keep references to all sensors already installed in doors and windows.
     QTimer * timer;
+    QElapsedTimer * timer2;
     int tipo_Alarma; // 0: desactivada, 1: perimetral
     SirenView * sirenview;
     QGraphicsTextItem * display;
