@@ -44,13 +44,13 @@ void DoorView::setDoorModel(Door * m){
 }
 void DoorView::installMagneticSensor(MagneticSensorView & mv){
     mv.getMagnetView().setRect(doorPanel->rect().right()-mv.getMagnetView().rect().width(),
-                                 doorPanel->rect().bottom(),
-                                 mv.getMagnetView().rect().width(),
-                                 mv.getMagnetView().rect().height());
+                               doorPanel->rect().bottom(),
+                               mv.getMagnetView().rect().width(),
+                               mv.getMagnetView().rect().height());
     mv.getSwitchView().setRect(switchPillar->boundingRect().x()+switchPillar->boundingRect().width()/2,
-                                 switchPillar->boundingRect().height(),
-                                 mv.getSwitchView().rect().width(),
-                                 mv.getSwitchView().rect().height());
+                               switchPillar->boundingRect().height(),
+                               mv.getSwitchView().rect().width(),
+                               mv.getSwitchView().rect().height());
     mv.getMagnetView().setTransformOriginPoint(doorPanel->rect().x() + doorPanel->rect().height()- doorPanel->rect().height(), doorPanel->rect().y() + doorPanel->rect().height());
 
     addToGroup(&mv.getMagnetView());

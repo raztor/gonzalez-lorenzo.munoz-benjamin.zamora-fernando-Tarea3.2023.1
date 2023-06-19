@@ -36,7 +36,7 @@ add_executable(T3_POO
         src/windowview.h
         src/windowview.cpp
         src/windowview.h src/window.cpp
-        src/window.h)
+        src/window.h src/centralview.cpp src/centralview.h src/sirenview.cpp src/sirenview.h)
 
 # Agrega las librerías previamente encontradas
 target_link_libraries(T3_POO

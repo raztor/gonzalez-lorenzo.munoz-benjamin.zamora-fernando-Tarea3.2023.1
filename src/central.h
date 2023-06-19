@@ -4,21 +4,41 @@
 #include <vector>
 #include <QTimer>
 #include "sensor.h"
+#include "sirenview.h"
 using namespace std; //needed by vector<>
 
 class Central : public QObject
 {
-    Q_OBJECT
+Q_OBJECT
 public:
-    explicit Central(QObject *parent = nullptr);
+    explicit Central(QObject *parent);
     void addNewSensor(Sensor * ps);
+    void desactivarAlarma();
+    void activarAlarma();
+    int getEstadoAlarma();
+    bool armable();
+    int getZonaAbierta();
+    void setSirenView(SirenView * sirenview);
+    void setDisplay(QGraphicsTextItem * display);
+    void sonandoUpdateDisplay();
+    void preAlarmaUpdateDisplay();
     ~Central();
+signals:
 private slots:
-    void checkZones();
+    int checkZones();
+    bool AlarmaSonando();
+    //void startBlinking();
+    //
 private:
-    void checkCloseZones(bool closeZones[]);
     vector<Sensor *> zones;  // keep references to all sensors already installed in doors and windows.
     QTimer * timer;
+    int tipo_Alarma; // 0: desactivada, 1: perimetral
+    SirenView * sirenview;
+    QGraphicsTextItem * display;
+
+
+
+
 };
 
 #endif // CENTRAL_H

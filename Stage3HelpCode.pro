@@ -18,7 +18,9 @@ SOURCES += \
     src/magneticsensor.cpp \
     src/magneticsensorview.cpp \
     src/main.cpp \
-    src/sensor.cpp
+    src/sensor.cpp \
+    src/sirenview.cpp \
+    src/centralview.cpp
 
 HEADERS += \
     src/central.h \
@@ -29,7 +31,9 @@ HEADERS += \
     src/housewindow.h \
     src/magneticsensor.h \
     src/magneticsensorview.h \
-    src/sensor.h
+    src/sensor.h \
+    src/sirenview.h \
+    src/centralview.h
 
 FORMS += \
     src/housewindow.ui

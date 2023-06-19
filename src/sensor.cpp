@@ -6,13 +6,13 @@ Sensor::Sensor(int z, bool close){
     this-> close= close;
 }
 bool Sensor::isClose() const {
-   return close;
+    return close;
 }
 int Sensor::getZone() const {
-   return zone;
+    return zone;
 }
 void Sensor::setClose(bool isClose) {
-   close = isClose;
-   cout << "Sensor is "<< (close?"close.":"open.") << endl;
+    close = isClose;
+    cout << "Sensor is "<< (close?"close.":"open.") << endl;
 }
 

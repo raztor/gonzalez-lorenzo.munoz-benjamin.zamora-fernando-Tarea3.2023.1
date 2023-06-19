@@ -15,14 +15,14 @@ Window::Window(MagneticSensor * sensor, WindowView * v): magneticSensor(sensor),
 }
 void Window::changeState() {
     if (isClose) {
-       isClose = false;
-       magneticSensor->setSensorClose();
-       view ->setClose();
+        isClose = false;
+        magneticSensor->setSensorClose();
+        view ->setClose();
 
     } else {
-       isClose = true;
-       magneticSensor->setSensorOpen();
-       view ->setOpen();
+        isClose = true;
+        magneticSensor->setSensorOpen();
+        view ->setOpen();
 
     }
 }
